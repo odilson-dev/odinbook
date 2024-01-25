@@ -6,6 +6,7 @@
 <%= render @user %>
 
 <%= link_to "Back to users", users_path %>
+<%= button_to 'Log out', destroy_user_session_path, method: :delete %>
 
 <% if @user.id == current_user.id %>
   <div>
