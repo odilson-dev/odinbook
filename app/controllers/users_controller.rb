@@ -2,10 +2,6 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
-  
-  def show
-    @user = current_user
-  end
 
   def new
     @user = User.new
@@ -18,18 +14,6 @@ class UsersController < ApplicationController
       redirect_to @user, notice: 'User was successfully created.'
     else
       render :new
-    end
-  end
-
-  def edit
-    @user = current_user
-  end
-
-  def update
-    if @user.update(user_params)
-      redirect_to @user, notice: 'User was successfully updated.'
-    else
-      render :edit
     end
   end
 

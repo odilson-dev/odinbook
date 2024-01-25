@@ -1,0 +1,18 @@
+<h1><%= @user.first_name %></h1>
+
+
+<p style="color: green"><%= notice %></p>
+
+<%= render @user %>
+
+<%= link_to "Back to users", users_path %>
+
+<% if @user.id == current_user.id %>
+  <div>
+    <%= link_to "Edit this user", edit_profile_path %> |
+    
+    
+    <%= button_to "Destroy this user", @user, method: :delete %>
+  </div>
+<% end %>
+
