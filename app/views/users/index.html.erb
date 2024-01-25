@@ -1,5 +1,13 @@
-<h2> All users</h2>
+<p style="color: green"><%= notice %></p>
 
-<% @users.each do |user| %>
-    <p><%= user.email %></p>
-<% end %>
+<h1>Users</h1>
+
+<div id="users">
+  <% @users.each do |user| %>
+    <p>
+      <%= link_to "Show this user", user %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New user", new_user_path %>
