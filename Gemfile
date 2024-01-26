@@ -68,4 +68,6 @@ end
 
 gem "devise", "~> 4.9"
 
-gem "socialization"
+gem 'followability', github: 'nejdetkadir/followability', branch: 'main'
+
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
