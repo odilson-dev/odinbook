@@ -21,6 +21,6 @@
 </ol>
 
 <% current_user.followers.each do |follower| %>
-  <%= link_to follower.email, profiles_path(follower) %>is following you!
+  <%= link_to follower.email, profile_path(follower) %>is following you!
   <%= button_to "Unfollow", unfollow_path(follower) %>
 <% end %>
