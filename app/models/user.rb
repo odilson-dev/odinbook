@@ -10,4 +10,12 @@ class User < ApplicationRecord
   validates :birthdate, presence: true
   validates :email, presence: true, uniqueness: true, format: { with: /\A\S+@\S+\z/, message: "Invalid email format" }
   validates :password, presence: true, length: { in: 6..20 }
+  
+  followability
+
+  def unfollow(user)
+    followerable_relationships.where(followable_id: user.id).destroy_all
+  end
+
+  
 end

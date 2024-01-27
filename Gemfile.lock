@@ -1,3 +1,18 @@
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: d355cc3ed6767c118729039839e2d7666c49ee56
+  branch: main
+  specs:
+    faker (3.2.3)
+      i18n (>= 1.8.11, < 2)
+
+GIT
+  remote: https://github.com/nejdetkadir/followability.git
+  revision: 20819c924271bd74bcd5df845729c9a2906085f6
+  branch: main
+  specs:
+    followability (1.1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -254,6 +269,8 @@ DEPENDENCIES
   capybara
   debug
   devise (~> 4.9)
+  faker!
+  followability!
   importmap-rails
   jbuilder
   pg (~> 1.1)
