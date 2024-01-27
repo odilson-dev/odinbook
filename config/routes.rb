@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'users#index'
-  resources :users, only: [:new, :create, :index, :destroy]
+  resources :users, only: [:new, :create, :index, :destroy] do
+    resources :posts
+  end
   resources :profiles, only: [:show, :edit, :update]
   
   post 'profile/:id/follow', to: 'profiles#follow', as: "follow"
