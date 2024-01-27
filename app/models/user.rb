@@ -13,6 +13,8 @@ class User < ApplicationRecord
   
   followability
 
+  has_many :posts, dependent: :destroy
+
   def unfollow(user)
     followerable_relationships.where(followable_id: user.id).destroy_all
   end
