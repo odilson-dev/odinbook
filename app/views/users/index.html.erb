@@ -9,3 +9,13 @@
     </p>
   <% end %>
 </div>
+
+<ol>
+    <% current_user.follow_requests.each do |request| %>
+        <li>
+            <%= request.followerable.email %>wants to follow you<br>
+            <%= button_to "Accept" accept_path(request.followerable) %>
+            <%= button_to "Decline" decline_path(request.followerable) %>
+        </li>
+    <% end %>
+</ol>
