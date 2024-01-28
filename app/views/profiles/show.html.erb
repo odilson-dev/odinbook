@@ -21,10 +21,11 @@
 <h2>All my posts</h2>
 <ol>
       <% @posts.each do |post| %>
-            <li><%= post.content %>
-                  <% if post.user_id == current_user.id %>
-                  <%= button_to "Edit ", edit_post_path(post), method: :get %>               <%= button_to "Delete", post, method: :delete %>
-                  <% end %>
+            <li>
+            <%= post.content %>
+            <%= link_to "Show this post", post %>
+            
+                  
             </li>
       <% end %>
 </ol>
