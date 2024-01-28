@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :index, :destroy]
   
   resources :profiles, only: [:show, :edit, :update]
-  resources :posts
+  resources :posts do
+    resources :likes
+  end
   
   post 'profile/:id/follow', to: 'profiles#follow', as: "follow"
   post 'profile/:id/unfollow', to: 'profiles#unfollow', as: "unfollow"
