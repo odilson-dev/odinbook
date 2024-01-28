@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root 'users#index'
   resources :users, only: [:new, :create, :index, :destroy]
+  
   resources :profiles, only: [:show, :edit, :update]
+  resources :posts
   
   post 'profile/:id/follow', to: 'profiles#follow', as: "follow"
   post 'profile/:id/unfollow', to: 'profiles#unfollow', as: "unfollow"
