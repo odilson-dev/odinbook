@@ -1,12 +1,13 @@
 <div id="<%= dom_id post %>">
+
   <p>
-    <strong>Content:</strong>
-    <%= post.content %>
+    <strong>Author:</strong>
+    <%= post.user.first_name %>
   </p>
 
   <p>
-    <strong>User:</strong>
-    <%= post.user_id %>
+    <strong>Content:</strong>
+    <%= post.content %>
   </p>
 
 </div>

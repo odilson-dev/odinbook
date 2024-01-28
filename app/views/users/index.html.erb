@@ -5,7 +5,7 @@
 <div id="users">
   <% @users.each do |user| %>
     <p>
-      <%= link_to "Show this #{user.email}", profile_path(user.id) %>
+      <%= link_to "Show #{user.first_name}", profile_path(user.id) %>
     </p>
   <% end %>
 </div>
