@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :profiles, only: [:show, :edit, :update]
   resources :posts do
     resources :likes
+    resources :comments, only: [:new, :create, :update, :destroy]
   end
   
   post 'profile/:id/follow', to: 'profiles#follow', as: "follow"
