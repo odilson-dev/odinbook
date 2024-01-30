@@ -10,4 +10,23 @@
     <%= post.content %>
   </p>
 
+  <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
+<% if pre_like %>
+  <%= button_to 'Unlike', post_like_path(@post, pre_like), method: :delete %>
+<% else %>
+  <%= button_to 'Like', post_likes_path(@post), method: :post %>
+<% end %>
+<%= button_to "New comment", new_post_comment_path(@post), method: :get %>
+
+
+  <h2>Comments:</h2>
+<ol>
+  <% post.comments.each do |comment| %>
+      <li>
+          Author: <%= comment.user.first_name %><br>
+          comment: <%= comment.content %>
+      </li>
+  <% end %>
+</ol>
+
 </div>

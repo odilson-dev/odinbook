@@ -16,8 +16,10 @@
     <%= form.text_area :content %>
   </div>
 
-  <input type="hidden" name="user_id" id="user_id" value=<%= current_user.id%> />
-
+  <input type="hidden" name="user_id" id="user_id" value= />
+  <%= form.hidden_field :user_id, value: current_user.id %>
+  <%= form.hidden_field :commentable_id, value: post.id %>
+  <%= form.hidden_field :commentable_type, value: post.class.name %>
 
   <div>
     <%= form.submit %>
