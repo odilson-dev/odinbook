@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[ show edit update destroy ]
 
+  before_action :set_post
+
   # GET /comments/new
   def new
     @comment = Comment.new
@@ -49,6 +51,9 @@ class CommentsController < ApplicationController
   end
 
   private
+  def set_post
+    @post = Post.find(params[:post_id])
+  end
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
       @comment = Comment.find(params[:id])

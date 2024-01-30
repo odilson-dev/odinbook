@@ -8,6 +8,8 @@
 <% else %>
   <%= button_to 'Like', post_likes_path(@post), method: :post %>
 <% end %>
+<%= button_to "New comment", new_post_comment_path(@post), method: :get %>
+
 
 <p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
 <div>
