@@ -4,12 +4,15 @@
 
 <div id="posts">
   <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
-    <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-    <hr>
+      <% if current_user.following.include?(post.user) %>
+          <%= render post %>
+          <p>
+            <%= link_to "Show this post", post %>
+          </p>
+          <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+          <hr>      
+      <% end %>
+    
   <% end %>
 </div>
 
