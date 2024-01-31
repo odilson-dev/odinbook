@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registations: 'users/registations'
+  }
+
   root 'users#index'
   resources :users, only: [:new, :create, :index, :destroy]
   
