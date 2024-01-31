@@ -18,6 +18,11 @@
     <%= f.text_field :username, autocomplete: "username" %>
   </div>
 
+    <div class="field">
+    <h2>Add your profile here</h2>
+    <%= f.file_field :image %>
+  </div>
+
   <div class="field">
     <%= f.label :birthdate %><br />
     <%= f.date_field :birthdate, autocomplete: "birthdate" %>
