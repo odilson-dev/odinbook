@@ -21,6 +21,8 @@
           object-fit: cover;"
   ) %>
 <% end %>
+  <p><%= user.followers.count %> followers </p>
+  <p><%= user.posts.count %> posts </p>
     <p>
       <%= link_to "Show #{user.first_name}", profile_path(user.id) %>
       <% if current_user.following?(user) %>
