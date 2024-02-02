@@ -4,6 +4,23 @@
 
 <div id="users">
   <% @users.each do |user| %>
+  <% if user.image.attached? %>
+      <%= image_tag(user.image, style: "
+            display: inline-block;
+            width: 50px;
+            border-radius: 50%;
+            height: 50px;
+            object-fit: cover;"
+      )%>
+      <% else %>
+  <%= image_tag('default-profile.webp', style: "
+          display: inline-block;
+          width: 50px;
+          border-radius: 50%;
+          height: 50px;
+          object-fit: cover;"
+  ) %>
+<% end %>
     <p>
       <%= link_to "Show #{user.first_name}", profile_path(user.id) %>
       <% if current_user.following?(user) %>
