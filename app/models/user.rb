@@ -22,5 +22,13 @@ class User < ApplicationRecord
     followerable_relationships.where(followable_id: user.id).destroy_all
   end
 
+  after_create :send_welcome_email
+
+  private
+
+  def send_welcome_email
+    UserMailer.with(user: self).welcome_email.deliver_now
+  end
+
   
 end
