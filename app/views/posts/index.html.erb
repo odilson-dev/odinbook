@@ -1,36 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Posts</h1>
+<h1> All the Posts</h1>
 
 <div id="posts">
   <% @posts.each do |post| %>
-      <% if current_user.following.include?(post.user) %>
-          <% if post.user.image.attached? %>
-      <%= image_tag(post.user.image, style: "
-            display: inline-block;
-            width: 50px;
-            border-radius: 50%;
-            height: 50px;
-            object-fit: cover;"
-      )%>
-      <% else %>
-  <%= image_tag('default-profile.webp', style: "
-          display: inline-block;
-          width: 50px;
-          border-radius: 50%;
-          height: 50px;
-          object-fit: cover;"
-  ) %>
-<% end %>
-          <%= render post %>
-          <p>
-            <%= link_to "Show this post", post %>
-          </p>
-          <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-          <hr>      
-      <% end %>
+  <p>Author: <%= post.user.id == current_user.id ? "Me" : post.user.first_name %></p>
+  <p><%= post.content %></p>
+  <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+   <p><%= link_to "Show this post", post %></p>
+  <hr>
     
   <% end %>
 </div>
 
-<%= link_to "New post", new_post_path %> | <%= link_to "Back to prodile", profile_path(current_user) %>
+<%= link_to "New post", new_post_path %> | <%= link_to "Back to profile", profile_path(current_user) %>

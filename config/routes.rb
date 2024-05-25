@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     registations: 'users/registations'
   }
 
-  root 'users#index'
+  root 'posts#index'
   resources :users, only: [:new, :create, :index, :destroy]
   
   resources :profiles, only: [:show, :edit, :update]
