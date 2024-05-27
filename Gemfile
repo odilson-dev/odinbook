@@ -67,6 +67,7 @@ group :test do
 end
 
 gem 'omniauth', '>= 1.0.0'
+gem "omniauth-google-oauth2"
 
 
 gem "devise", "~> 4.9"
