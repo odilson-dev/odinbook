@@ -66,6 +66,11 @@ group :test do
   gem "selenium-webdriver"
 end
 
+gem 'omniauth', '>= 1.0.0'
+gem "omniauth-google-oauth2"
+gem "omniauth-rails_csrf_protection", "~> 1.0"
+
+
 gem "devise", "~> 4.9"
 
 gem 'followability', github: 'nejdetkadir/followability', branch: 'main'

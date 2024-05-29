@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    registations: 'users/registations'
-  }
+      registations: 'users/registations', # This controller handles actions related to user sign-up and account management.
+      session: 'users/sessions', # This controller handles actions related to user sign-in and sign-out.
+      omniauth_callbacks: 'users/omniauth_callbacks' # This controller manages the authentication flow when users sign in using external providers like Google, Facebook, etc.
+    }
 
   root 'posts#index'
   resources :users, only: [:new, :create, :index, :destroy]
