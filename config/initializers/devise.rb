@@ -15,7 +15,7 @@ Devise.setup do |config|
           {
             scope: 'userinfo.email, userinfo.profile',
             prompt: 'select_account',
-            redirect_uri: 'http://localhost:3000/auth/google_oauth2/callback'
+            redirect_uri: 'http://localhost:3000/users/auth/google_oauth2/callback'
           }
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
