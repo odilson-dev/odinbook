@@ -18,13 +18,16 @@
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end %>
 
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-  <%= form_for "Login",
-    url:omniauth_authorize_path(resource_name, provider),
-    method: :post,
-    data: { turbo: "false" } do |f| %>
-    <%= f.submit "Login", type: "image", src: url_for('/assets/web_light_sq_ctn@1x') %>
+<% if devise_mapping.omniauthable? %>
+  <% resource_class.omniauth_providers.each do |provider| %>
+    <%= button_to omniauth_authorize_path(resource_name, provider), method: :post, data: { turbo: "false" } do %>
+      <% icon_path = case provider
+                    when :google_oauth2 then '/assets/google_icon.png'
+                    when :github then '/assets/github_icon.png'
+                    else '/assets/default_icon.png'
+                    end %>
+      <%= image_tag icon_path, alt: "Login with #{provider.to_s.titleize == "Github" ? "GitHub" : "Google"}" %>
     <% end %>
   <% end %>
 <% end %>
+
