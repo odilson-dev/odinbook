@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'messages/create'
+  get 'private_chats/index'
+  get 'private_chats/show'
   devise_for :users, controllers: {
       registations: 'users/registations', # This controller handles actions related to user sign-up and account management.
       session: 'users/sessions', # This controller handles actions related to user sign-in and sign-out.
