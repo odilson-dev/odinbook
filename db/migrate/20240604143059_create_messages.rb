@@ -7,5 +7,7 @@ class CreateMessages < ActiveRecord::Migration[7.1]
 
       t.timestamps
     end
+    add_foreign_key "messages", "private_chats"
+    add_foreign_key "messages", "profiles"
   end
 end
