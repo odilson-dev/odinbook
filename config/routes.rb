@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       omniauth_callbacks: 'users/omniauth_callbacks' # This controller manages the authentication flow when users sign in using external providers like Google, Facebook, etc.
     }
 
-  root 'posts#index'
+  root 'users#index'
   resources :users, only: [:new, :create, :index, :destroy]
   
   resources :profiles, only: [:show, :edit, :update]

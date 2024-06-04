@@ -71,6 +71,10 @@ gem "omniauth-google-oauth2"
 gem 'omniauth-github', '~> 2.0.0'
 gem "omniauth-rails_csrf_protection", "~> 1.0"
 
+gem 'redis', '~> 5.0'
+gem 'webpacker'
+gem "cloudinary"
+
 
 gem "devise", "~> 4.9"
 
