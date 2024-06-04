@@ -5,6 +5,9 @@ class CreateMessages < ActiveRecord::Migration[7.1]
       t.references :private_chat, null: false, foreign_key: true
       t.references :profile, null: false, foreign_key: true
 
+      add_foreign_key "messages", "private_chats"
+      add_foreign_key "messages", "profiles"
+
       t.timestamps
     end
   end
