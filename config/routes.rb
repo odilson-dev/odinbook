@@ -7,6 +7,12 @@ Rails.application.routes.draw do
 
   root 'users#index'
   resources :users, only: [:new, :create, :index, :destroy]
+  resources :profiles, only: [:show, :edit, :update] do
+    post 'create_chat', on: :member
+    resources :private_chats, only: [:index, :show] do
+      resources :messages, only: [:create]
+    end
+  end
   
   resources :profiles, only: [:show, :edit, :update]
   resources :posts do
