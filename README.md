@@ -1,4 +1,4 @@
-# Social Media Clone
+# OdinBook
 
 ## Introduction
 
@@ -65,7 +65,7 @@ Extra Credit:
 2. **Set Up the Rails App**:
    - Create a new PostgreSQL Rails app:
      ```bash
-     rails new facebook-clone --database=postgresql
+     rails new odinbook --database=postgresql
      ```
    - Initialize the Git repository and update the README with a link to this page.
 
