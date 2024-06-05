@@ -81,5 +81,6 @@ gem "devise", "~> 4.9"
 gem 'followability', github: 'nejdetkadir/followability', branch: 'main'
 
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
+gem 'bcrypt', '~> 3.1.7'
 
 gem "letter_opener", group: :development

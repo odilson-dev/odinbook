@@ -2,7 +2,20 @@ class ProfilesController < ApplicationController
   before_action :set_user
   
   def show
-    @posts = @user.posts
+    # Find the Profile record with the given user_id
+    @profile = Profile.find_by(user_id: params[:id])
+
+    # Check if the @profile is found
+    if @profile
+      # If found, get the associated user and posts
+      @user = @profile.user
+      @posts = @user.posts
+    else
+      # If not found, handle the error accordingly
+      # For example, you can redirect to a 404 page
+      # or render an error message
+      render file: "#{Rails.root}/public/404.html", status: :not_found, layout: false
+    end
   end
 
   def follow
