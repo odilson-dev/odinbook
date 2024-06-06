@@ -11,6 +11,7 @@ class PrivateChatsController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:user_id])
     @profile = Profile.find(params[:profile_id])
     @private_chat = PrivateChat.find(params[:id])
     @message = Message.new
