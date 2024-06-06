@@ -3,7 +3,7 @@
 <div class="container private_chat" data-controller="private-chat-subscription" data-private-chat-subscription-private-chat-id-value="<%= @private_chat.id %>">
 
   <% profile_to_show = @private_chat.profile1_id == @profile.id ? @private_chat.profile2 : @private_chat.profile1 %>
-    <%= cl_image_tag profile_to_show.profile_picture.key.to_s, crop: :fill, :class => "private_chat__avatar" %>
+    <%# cl_image_tag profile_to_show.profile_picture.key.to_s, crop: :fill, :class => "private_chat__avatar" %>
     <h1><%= profile_to_show.nickname %></h1>
 
 
