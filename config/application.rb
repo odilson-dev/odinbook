@@ -1,4 +1,5 @@
 require_relative "boot"
+require "simple_form"
 
 require "rails/all"
 

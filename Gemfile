@@ -74,6 +74,7 @@ gem "omniauth-rails_csrf_protection", "~> 1.0"
 gem 'redis', '~> 5.0'
 gem 'webpacker'
 gem "cloudinary"
+gem 'simple_form'
 
 
 gem "devise", "~> 4.9"
