@@ -1,6 +1,6 @@
 <div id="message-<%= message.id %>">
   <small>
-    <strong><%= message.profile.nickname %></strong>
+    <strong><%= message.profile.user.id == current_user.id ? "Me" : message.profile.nickname %></strong>
     <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
   </small>
   <p><%= message.content %></p>
