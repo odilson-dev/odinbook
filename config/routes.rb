@@ -1,13 +1,23 @@
 Rails.application.routes.draw do
+  get 'messages/create'
+  get 'private_chats/index'
+  get 'private_chats/show'
   devise_for :users, controllers: {
       registations: 'users/registations', # This controller handles actions related to user sign-up and account management.
       session: 'users/sessions', # This controller handles actions related to user sign-in and sign-out.
       omniauth_callbacks: 'users/omniauth_callbacks' # This controller manages the authentication flow when users sign in using external providers like Google, Facebook, etc.
     }
 
-  root 'posts#index'
-  resources :users, only: [:new, :create, :index, :destroy]
-  
+  root 'users#index'
+  resources :users, only: [:new, :create, :index, :destroy] do
+    resources :profiles, only: [:show, :edit, :update] do
+      post 'create_chat', on: :member
+      resources :private_chats, only: [:index, :show] do
+        resources :messages, only: [:create]
+      end
+    end
+  end
+ 
   resources :profiles, only: [:show, :edit, :update]
   resources :posts do
     resources :likes

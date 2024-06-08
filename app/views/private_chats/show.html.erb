@@ -1,0 +1,27 @@
+<h1>PrivateChats#show</h1>
+<p>Find me in app/views/private_chats/show.html.erb</p>
+<div class="container private_chat" data-controller="private-chat-subscription" data-private-chat-subscription-private-chat-id-value="<%= @private_chat.id %>">
+
+  <% profile_to_show = @private_chat.profile1_id == @profile.id ? @private_chat.profile2 : @private_chat.profile1 %>
+    <%# cl_image_tag profile_to_show.profile_picture.key.to_s, crop: :fill, :class => "private_chat__avatar" %>
+    <h1><%= profile_to_show.nickname %></h1>
+
+
+  <div class="messages" data-private-chat-subscription-target="messages">
+    <% @private_chat.messages.each do |message| %>
+      <%= render "messages/message", message: message %>
+    <% end %>
+  </div>
+
+  <%= turbo_frame_tag 'new_message' do %>
+  <%= simple_form_for [@user, @profile, @private_chat, @message], 
+      url: user_profile_private_chat_messages_path(@user, @profile, @private_chat),
+      html: { data: { action: "turbo:submit-end->private-chat-subscription#resetForm" }, class: "d-flex"} do |f| %>
+    <%= f.input :content,
+      label: false,
+      placeholder: "Message to #{profile_to_show.nickname}",
+      wrapper_html: { class: "flex-grow-1" } %>
+    <%= f.submit "Send", class: "btn btn-primary mb-3 send__btn" %>
+  <% end %>
+<% end %>
+</div>

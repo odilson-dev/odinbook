@@ -19,6 +19,18 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   has_one_attached :image
+  has_one :profile, dependent: :destroy
+
+  after_create :create_profile
+  after_create :send_welcome_email
+
+  def create_profile
+    profile = Profile.new(user: self, nickname: self.username, profile_picture: "default.png")
+    unless profile.save
+      puts "Profile could not be saved because: #{profile.errors.full_messages.join(", ")}"
+    end
+  end
+
   def unfollow(user)
     followerable_relationships.where(followable_id: user.id).destroy_all
   end
@@ -32,7 +44,7 @@ class User < ApplicationRecord
     end
   end
 
-  after_create :send_welcome_email
+  
 
   private
 

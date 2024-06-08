@@ -1,0 +1,18 @@
+<h1>PrivateChats#index</h1>
+<p>Find me in app/views/private_chats/index.html.erb</p>
+<div class="private_chat_index_page">
+    <% @private_chats.each do |private_chat| %>
+      <% other_profile = private_chat.profile1_id == @profile.id ? private_chat.profile2 : private_chat.profile1 %>
+      <%= link_to user_profile_private_chat_path(@user, @profile, private_chat) do %>
+        <div class="private_chat__index__cards">
+          <%= cl_image_tag other_profile.profile_picture.key.to_s, crop: :fill, :class => "card__avatar" %>
+          <div class="private_chat__cards__text">
+            <h3><%= other_profile.nickname %></h3>
+            <p><%= other_profile.updated_at.strftime("%d/%m/%Y %H:%M:%S") %></p>
+            <% last_message = other_profile.messages.last %>
+            <p><%= last_message.content if last_message %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+</div>
