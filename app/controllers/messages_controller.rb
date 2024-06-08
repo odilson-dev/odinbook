@@ -4,17 +4,17 @@ class MessagesController < ApplicationController
   def create
     @message = @private_chat.messages.new(message_params)
     @message.profile_id = current_user.profile.id
+    @user = User.find(params[:user_id])
+    @profile = Profile.find(params[:profile_id])
+    @private_chat = PrivateChat.find(params[:private_chat_id])
 
     if @message.save
-      PrivateChatChannel.broadcast_to(
-        @message.private_chat,
-        render_to_string(partial: "message", locals: { message: @message })
-      )
+      redirect_back(fallback_location: root_path)
     end
 
-    head :ok
-
   end
+  
+
 
   private
 

@@ -1,4 +1,4 @@
-import consumer from "./consumer"
+import consumer from "./consumer";
 
 consumer.subscriptions.create("PrivateChatChannel", {
   connected() {
@@ -11,5 +11,6 @@ consumer.subscriptions.create("PrivateChatChannel", {
 
   received(data) {
     // Called when there's incoming data on the websocket for this channel
-  }
+    this.insertMessage(data.message);
+  },
 });
