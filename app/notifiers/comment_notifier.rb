@@ -7,7 +7,8 @@ class CommentNotifier < ApplicationNotifier
   #
   deliver_by :email do |config|
     config.mailer = "UserMailer"
-    config.method = "new_post"
+    config.method = "new_comment"
+    config.params = ->(recipient) { { user: recipient } }
   end
   #
   # bulk_deliver_by :slack do |config|

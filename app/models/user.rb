@@ -21,6 +21,9 @@ class User < ApplicationRecord
   has_one_attached :image
   has_one :profile, dependent: :destroy
 
+  has_many notifications, as: :recipient, dependent: :destroy, class_name: "Noticed::Notification"
+  has_many notification_mentions, as: :record, dependent: :destroy, class_name: "Noticed::Event"
+
   after_create :create_profile
   after_create :send_welcome_email
 
