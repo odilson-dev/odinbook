@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'notifications/index'
   get 'messages/create'
   get 'private_chats/index'
   get 'private_chats/show'
