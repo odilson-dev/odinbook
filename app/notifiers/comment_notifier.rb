@@ -15,7 +15,15 @@ class CommentNotifier < ApplicationNotifier
 
   notification_methods do
     def message
-      "This is #{recipient.username}'s foo: #{params[:foo]}"
+      case params[:type]
+      when "message"
+        "You have a new message from #{params[:author]} in your chatroom."
+      when "comment"
+        "You have a new comment on your post."
+      else
+        "This is #{recipient.username}'s foo: #{params[:foo]}"
+      end
+      
     end
   end
   #

@@ -2,7 +2,7 @@
 <p>Find me in app/views/notifications/index.html.erb</p>
 <ul>
 
-<% @notifications.each do |notification|%>
+<% @notifications.reverse.each do |notification|%>
 
 <li>
 <%= notification.message %>
