@@ -19,6 +19,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.html { redirect_to post_url(@post), notice: "Comment was successfully created." }
+        notify_recipient
         # format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -51,6 +52,17 @@ class CommentsController < ApplicationController
   end
 
   private
+  def notify_recipient
+    
+    post_author = @post.user
+  
+    #CommentNotification is created.
+    notification = CommentNotifier.with(comment: @comment.content, author: current_user.username, type: "comment")
+
+    #CommentNotification is delivered to the recipient.
+    notification.deliver(post_author)
+    
+  end
   def set_post
     @post = Post.find(params[:post_id])
   end

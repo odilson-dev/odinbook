@@ -6,8 +6,11 @@ class LikesController < ApplicationController
             flash[:notice] = "You can't like more than once"
         else
             @post.likes.create(user_id: current_user.id)
+            flash[:notice] = "Liked!"
+            notify_recipient
         end
-        redirect_to request.original_url
+        
+        redirect_back(fallback_location: root_path)
     end
 
     def destroy
@@ -15,12 +18,24 @@ class LikesController < ApplicationController
           flash[:notice] = "Cannot unlike"
         else
           @like.destroy
+          flash[:notice] = "Unliked!"
         end
         
-        redirect_to request.original_url
+        redirect_back(fallback_location: root_path)
     end
 
     private
+    def notify_recipient
+    
+        post_author = @post.user
+      
+        #CommentNotification is created.
+        notification = CommentNotifier.with(author: current_user.username, type: "like")
+    
+        #CommentNotification is delivered to the recipient.
+        notification.deliver(post_author)
+        
+      end
     def find_post
         @post = Post.find(params[:post_id])
     end

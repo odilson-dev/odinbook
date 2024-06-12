@@ -85,3 +85,4 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main
 gem 'bcrypt', '~> 3.1.7'
 
 gem "letter_opener", group: :development
+gem "noticed", "~> 2.3"
