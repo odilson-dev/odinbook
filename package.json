@@ -1,4 +1,6 @@
 {
+  "name": "odinbook",
+  "private": true,
   "dependencies": {
     "@rails/webpacker": "5.4.4",
     "webpack": "^4.46.0",
@@ -6,5 +8,9 @@
   },
   "devDependencies": {
     "webpack-dev-server": "^3"
+  },
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack"
   }
 }

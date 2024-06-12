@@ -20,6 +20,8 @@ class CommentNotifier < ApplicationNotifier
         "You have a new message from #{params[:author]} in your chatroom."
       when "comment"
         "You have a new comment from #{params[:author]} on your post."
+      when "like"
+        "#{params[:author]} liked your post."
       else
         "This is #{recipient.username}'s foo: #{params[:foo]}"
       end
