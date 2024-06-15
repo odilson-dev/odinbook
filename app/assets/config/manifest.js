@@ -4,3 +4,4 @@
 //= link_tree ../../../vendor/javascript .js
 //= link rails-ujs.js
 //= link_directory ../javascripts .js
+//= link_tree ../builds

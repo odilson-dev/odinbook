@@ -86,3 +86,5 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem "letter_opener", group: :development
 gem "noticed", "~> 2.3"
+
+gem "tailwindcss-rails", "~> 2.6"
