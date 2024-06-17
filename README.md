@@ -28,20 +28,24 @@ Extra Credit:
 ### Core Features
 
 1. **User Authentication**:
+
    - Use Devise for user authentication.
    - Users must sign in to access the site.
 
 2. **User Profiles**:
+
    - Users can create profiles with a profile picture.
    - Display profile information, profile photo, and user posts on the profile page.
 
 3. **Posts**:
+
    - Users can create text posts.
    - Users can like and comment on posts.
    - Display post content, author, comments, and likes.
    - Index page for posts showing recent posts from the user and their followed users.
 
 4. **Following**:
+
    - Users can send follow requests to other users.
    - Index page for users with buttons to follow/unfollow users.
 
@@ -60,6 +64,7 @@ Extra Credit:
 ### Data Architecture
 
 1. **Plan Your Models and Associations**:
+
    - Users, Profiles, Posts, Likes, Comments, Follow Requests, etc.
 
 2. **Set Up the Rails App**:
@@ -72,19 +77,23 @@ Extra Credit:
 ### Development Steps
 
 1. **User Authentication**:
+
    - Add Devise to your Gemfile and set up Devise for user authentication.
    - Configure routes and views for user sign-up, login, and profile management.
 
 2. **User Profiles**:
+
    - Generate a Profile model and associate it with the User model.
    - Implement profile picture upload using Active Storage.
 
 3. **Posts and Comments**:
+
    - Generate Post and Comment models.
    - Set up associations between Users, Posts, and Comments.
    - Implement CRUD actions for posts and comments.
 
 4. **Following System**:
+
    - Generate a FollowRequest model.
    - Implement functionality for sending, accepting, and declining follow requests.
    - Display follower/following lists on user profiles.
@@ -92,11 +101,12 @@ Extra Credit:
 5. **Mailers**:
    - Set up Action Mailer for sending welcome emails.
    - Use letter_opener gem to test emails in development.
-
+   <!--
 6. **Testing**:
+
    - Write integration tests to ensure pages load correctly.
    - Write unit tests for models and associations.
-   - Use Guard to run tests continuously.
+   - Use Guard to run tests continuously. -->
 
 7. **Styling and Deployment**:
    - Style the application using CSS and HTML.
