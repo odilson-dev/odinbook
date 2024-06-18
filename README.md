@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This project is a significant milestone where i showcase my proficiency in building Rails applications, modeling data, and working with forms. The goal is to create a social media site clone, such as Facebook, Twitter, Myspace, or Threads. While the styling and front-end are optional, i focus mostly on implementing the core backend features like users, profiles, posts, following, and liking.
+This project is a significant milestone where I showcase my proficiency in building Rails applications, modeling data, and working with forms. The goal is to create a social media site clone, such as Facebook, Twitter, Myspace, or Threads. While the styling and front-end are optional, I focus mostly on implementing the core backend features like users, profiles, posts, following, and liking.
 
 ## Assignment
 
